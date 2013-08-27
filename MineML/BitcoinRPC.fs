@@ -12,6 +12,6 @@ type BitcoinRPC (host : string, port : UInt32, user : string, password : string)
                         ( let bb = System.Text.Encoding.Unicode.GetBytes(authp)
                           System.Convert.ToBase64String(bb) )
         
-        //self.conn = httplib.HTTPConnection(host, port, False, 30)
+        
         
         true
