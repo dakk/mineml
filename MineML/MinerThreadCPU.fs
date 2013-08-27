@@ -12,6 +12,8 @@ type MinerThreadCPU (p : Parameters) =
     
     override this.Body () =
         if this.RPC.Authenticate () then
+            this.AddMessage "RPC: authenticated"
+               
             let rec iteration () =
                 // Get next work
                 let w = this.RPC.GetWork ()

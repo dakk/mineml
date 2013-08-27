@@ -29,5 +29,5 @@ type BitcoinRPC (host : string, port : UInt32, user : string, password : string)
     member this.Request (cmd : string) (pars : string list) = ""
     
     
-    
+    (* GetWork request *)
     member this.GetWork () = { Target = Some ""; Data = Some "" }
