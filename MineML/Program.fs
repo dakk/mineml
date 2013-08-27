@@ -7,7 +7,7 @@ open System.IO
 (* Parse parameters list *)
 let rec parseParameters (ss : string list) (ps : Parameters) =
     let getvalue (keyvalue : string) = keyvalue.Substring ((keyvalue.IndexOf "=") + 1, 
-                                        keyvalue.Length - (keyvalue.IndexOf "="))
+                                        keyvalue.Length - (keyvalue.IndexOf "=") - 1)
     match ss with
         | [] -> ps
         | x::xl ->
@@ -26,10 +26,10 @@ let main (args : string []) =
     
     // Check if parameter contains a conf path
     let pars =
-        if args.Length < 2 then Parameters.Empty
+        if args.Length < 1 then Parameters.Empty
         else 
             // Read text file, parse arguments
-            let strings = File.ReadAllLines (let a = (Array.toList args) in a.Tail.Head)
+            let strings = File.ReadAllLines (let a = (Array.toList args) in a.Head)
             parseParameters (Array.toList strings) Parameters.Empty
      
     // Create the miner object and start all threads 
