@@ -15,3 +15,4 @@ TODO
   * Statistics
   * GUI interface
   * OpenCL thread implementation
+  * Difficulty handling
