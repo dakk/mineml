@@ -24,15 +24,15 @@ type Utils() =
 
 
     static member toStringFromUint (value : uint32) =
-        toStringFromByte (BitConverter.GetBytes(value))
+        Utils.toStringFromByte (BitConverter.GetBytes(value))
         
         
     static member endianFlip32BitChunks (input : string) =
         let mutable res = ""
         let chs = input.ToCharArray ()
         
-        for i in 0 .. 8 .. input.Length do
-            for j in 0 .. 2 .. 8 do
+        for i in 0 .. 8 .. (input.Length - 1) do
+            for j in 0 .. 2 .. 7 do
                 res <- res + ((chs.GetValue (i - j + 6)).ToString ())
                 res <- res + ((chs.GetValue (i - j + 7)).ToString ())
             
