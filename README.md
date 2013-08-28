@@ -10,3 +10,8 @@ Requirements
   * Mono 3.0 (.net api 4.0)
 
 
+TODO
+====
+  * Statistics
+  * GUI interface
+  * OpenCL thread implementation
